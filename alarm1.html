@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Alarm</title>
+</head>
+
+<body>
+<fieldset><legend>Alarm Clock</legend><table bgcolor="#CC0033">
+<tr><td><input type="text" id="chr"></td><td><input type="text" id="cmin"></td><td><input type="text" id="csec"></td></tr>
+<tr><td><input type="number" id="uhr"></td><td><input type="number" id="umin"></td><td><input type="number" id="usec"></td></tr>
+<tr><td colspan="3"><input type="button" value="Set Alarm" onclick="getAlarm()" /></td></tr>
+</table></fieldset>
+<table><tr><td>Solve 2+2<input type="text" id"ans" /></td></tr></table>
+<script>
+var d;
+var uh,umin,usec;
+
+function scom(){
+	d = new Date();
+	var chr = d.getHours();
+	var cmin = d.getMinutes();
+	var csec = d.getSeconds();
+	var ctime = chr+":"+cmin+":"+csec;
+	var utime = uhr+":"+umin+":"+usec;
+	document.getElementById("chr").value = chr;
+	document.getElementById("cmin").value = cmin;
+	document.getElementById("csec").value = csec;
+	
+	if(ctime==utime){
+				
+		var a = new Audio('Kalimba.mp3');
+		a.play();
+		
+		alert('wake up');
+			
+		}
+}
+setInterval (scom,1000);
+function getAlarm(){
+	uhr = document.getElementById("uhr").value;
+	umin = document.getElementById("umin").value;
+	usec = document.getElementById("usec").value;
+	}	
+</script>
+</body>
+</html>
